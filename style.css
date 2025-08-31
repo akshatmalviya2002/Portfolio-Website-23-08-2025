@@ -20,7 +20,7 @@
 /* --- 1. General Body & Layout --- */
 body {
     background-color: var(--background-color);
-    padding: 72px 160px;
+    /* padding: 72px 160px; */
     color: var(--text-base-color);
     font-family: 'Afacad', sans-serif;
     font-size: 16px;
@@ -53,10 +53,14 @@ body {
     gap: 72px;
     align-items: center;
     width: 100%;
+    padding: 3rem 8rem;
 }
 
 .nav-logo img {
     display: block;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
 }
 
 .nav-items {
@@ -115,17 +119,25 @@ body {
 
 /*Hero section*/
 .hero {
-    padding-top: 136px;
-    min-height: 60vh;
+    /* padding-top: 136px; */
+    /* min-height: 60vh; */
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 10rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-bottom: 2rem;
 }
 
 .batman1 {
     display: flex;
     flex-direction: column;
+    margin-top: auto;
+    margin-bottom: 2.3rem;
+    max-width: 529px;
+    gap: 1rem;
 }
 
 .batman2 {
@@ -133,35 +145,38 @@ body {
     flex-direction: column;
     gap: 44px;
     align-items: flex-end;
+
+    h1 {
+        font-family: 'Beautique Display Condensed', sans-serif;
+        text-align: end;
+    }
 }
 
 .hero .intro {
-    font-size: 2.5rem;
-    font-weight: 300;   
-    padding-right: 32px;
+    font-size: 2rem;
+    font-weight: 300;
 }
 
 .hero h1 {
     font-family: 'Beautique Display Condensed', serif;
-    font-size: 16rem;
+    font-size: 15rem;
     font-weight: normal;
     line-height: 0.95;
-    margin: 0 0 2.5rem 0;
     color: var(--text-title-color);
 }
 
 .hero .description {
     font-size: 1rem;
     font-weight: 300;
-    line-height: 1.6;
-    max-width: 450px;
-    margin-bottom: 2rem;
+    line-height: 1.4;
+    max-width: 529px;
     color: #d1d1d1;
 }
 
 .connect-link {
-    font-size: 1.125rem;
-    font-weight: 400;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: italic;
     color: var(--text-title-color);
     text-decoration: none;
     display: inline-block;
@@ -194,6 +209,8 @@ body {
     left: -15vmax;
     opacity: 0.7;
 }
+
+
 
 /* --- 5. Responsive Design (New) --- */
 @media (max-width: 1200px) {

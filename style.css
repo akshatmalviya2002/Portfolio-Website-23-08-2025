@@ -397,3 +397,143 @@ body {
     gap: 5px;
   }
 }
+
+
+
+
+
+/*Page>> IdendefAi*/
+
+.project-header {
+  padding: 3rem 8rem 4rem;
+}
+
+/* Main project title */
+.project-title {
+  font-family: 'Beautique Display Condensed', serif;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.9;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* Meta information grid */
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 48px;
+  margin-bottom: 64px;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meta-label {
+  font-family: 'Beautique Display Condensed', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+}
+
+.meta-value {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.meta-value p {
+  margin: 0 0 4px;
+}
+
+/* Tags for domain */
+.meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: 'Afacad', sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 6px 12px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  display: inline-block;
+}
+
+/* Project Overview */
+.project-overview {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.overview-label {
+  font-family: 'Beautique Display Condensed', serif;
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+}
+
+.overview-text {
+  font-family: 'Afacad', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  max-width: 680px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .project-meta {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-meta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .project-overview {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .meta-tags {
+    gap: 6px;
+  }
+  
+  .tag {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-header {
+    padding: 32px 0 48px;
+  }
+  
+  .project-title {
+    margin-bottom: 32px;
+  }
+  
+  .project-meta {
+    margin-bottom: 48px;
+  }
+}

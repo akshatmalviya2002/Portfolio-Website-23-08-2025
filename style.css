@@ -32,6 +32,7 @@ body {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
+  gap:auto ;
   position: relative;
 }
 
@@ -53,7 +54,8 @@ body {
   gap: 72px;
   align-items: center;
   width: 100%;
-  padding: 3rem 8rem;
+  padding-left: 8rem;
+  padding-top: 3rem;
 }
 
 .nav-logo img {
@@ -128,6 +130,7 @@ body {
   padding-left: 8rem;
   padding-right: 8rem;
   padding-bottom: 2rem;
+  height: 100vh;
 }
 
 .batman1 {
@@ -400,13 +403,22 @@ body {
 
 
 
-
-
 /*Page>> IdendefAi*/
-
-.project-header {
-  padding: 3rem 8rem 4rem;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
 }
+
+
+
+.Project-header {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 8rem;
+  gap: 5rem;
+}
+
 
 /* Main project title */
 .project-title {
@@ -423,6 +435,12 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px 48px;
   margin-bottom: 64px;
+}
+
+.Project-overview {
+  display: flex;
+  flex-direction: row;
+  gap: 15rem;
 }
 
 .meta-item {

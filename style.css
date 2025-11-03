@@ -137,7 +137,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: auto;
-  margin-bottom: 2.3rem;
+  margin-bottom: 11rem;
   max-width: 529px;
   gap: 1rem;
 }
@@ -604,6 +604,11 @@ body {
     font-size: 1.1em;
     font-weight: 400;
   }
+}
+
+.email:hover {
+  color: var(--highlight-color);
+  text-decoration: underline;
 }
 
 /*Page>> IdendefAi*/

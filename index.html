@@ -5,575 +5,469 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Akshat Malviya's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
+    <style type="text/tailwindcss">
+      @font-face {
+        font-family: "Beautique Display Condensed";
+        src: url("Fonts/BeautiqueDisplayCondensed-Regular.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        font-family: "Afacad", sans-serif;
+      }
+
+      .afacad-font {
+        font-family: "Afacad", sans-serif;
+      }
+
+      .beautique-font {
+        font-family: "Beautique Display Condensed", serif;
+      }
+
+      /* Custom hover ellipse animation */
+      .hover-ellipse {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .nav-link:hover .hover-ellipse {
+        opacity: 1;
+      }
+
+      .social-hover {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.2);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        pointer-events: none;
+      }
+
+      .social-link:hover .social-hover {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.8);
+      }
+
+      /* Work header lines - rigid on 1521px+ */
+      @media (min-width: 1521px) {
+        .work-header::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          pointer-events: none;
+          left: -0.3rem;
+          width: 13.5vw;
+        }
+        
+        .work-header::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          pointer-events: none;
+          right: -0.2rem;
+          width: 53.7vw;
+        }
+      }
+
+      /* Removed invalid media query (min-width:1536px and max-width:1520px) */
+
+      @media (max-width: 1535px) {
+        .work-header::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          pointer-events: none;
+          left: -4rem;
+          width: 19vw;
+        }
+        
+        .work-header::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          height: 1px;
+          background-color: rgba(255, 255, 255, 0.4);
+          pointer-events: none;
+          right: -8rem;
+          width: 52vw;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .work-header::before {
+          left: -2rem;
+          width: 15vw;
+        }
+        
+        .work-header::after {
+          right: -2rem;
+          width: 50vw;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .work-header::before {
+          left: -1rem;
+          width: 10vw;
+        }
+        
+        .work-header::after {
+          right: -1rem;
+          width: 45vw;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .work-header::before {
+          left: -0.5rem;
+          width: 8vw;
+        }
+        
+        .work-header::after {
+          right: -0.5rem;
+          width: 40vw;
+        }
+      }
+
+      /* Resume link underline animation */
+      .resume-link::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1.5px;
+        bottom: 0.25vw;
+        left: 0;
+        background-color: #ffffff;
+        transition: transform 0.3s ease-out;
+        transform-origin: bottom left;
+      }
+
+      .resume-link:hover::after {
+        transform: scaleX(1);
+      }
+    </style>
   </head>
 
-  <body>
-    <div class="glow glow-tr"></div>
-    <div class="glow glow-bl"></div>
+  <body class="bg-[#1b1b1b] text-[#e8e8e8] min-h-screen overflow-x-hidden scroll-smooth mx-auto">
+    <!-- Glows -->
+    <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-90 -top-[10vmax] -right-[25vmax]"></div>
+    <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-70 -bottom-[20vmax] -left-[15vmax]"></div>
 
-    <div class="content-wrapper">
-      <header>
-        <nav class="navbar">
-          <a href="#" class="nav-logo">
-            <img src="Images/logo.png" alt="Logo" />
-          </a>
-          <ul class="nav-items">
-            <li class="nav-item">
-              <a href="/" class="nav-link">
-                <span class="nav-text">Home</span>
-                <span class="hover-ellipse">
-                  <svg
-                    width="140"
-                    height="104"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_498_1979)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="31"
-                        ry="13"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_498_1979"
-                        x="0.900002"
-                        y="0.900002"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="19.05"
-                          result="effect1_foregroundBlur_498_1979"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#work" class="nav-link">
-                <span class="nav-text">Work</span>
-                <span class="hover-ellipse">
-                  <svg
-                    width="140"
-                    height="104"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_498_1979)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="31"
-                        ry="13"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_498_1979"
-                        x="0.900002"
-                        y="0.900002"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="19.05"
-                          result="effect1_foregroundBlur_498_1979"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-            </li>
+    <!-- Header / Navbar -->
+    <header>
+      <nav class="flex flex-col lg:flex-row gap-10 lg:gap-[72px] items-start lg:items-center px-6 md:px-10 pt-6 md:pt-8">
+        <a href="/" class="w-12 h-12">
+          <img src="Images/logo.png" alt="Logo" class="w-full h-full object-contain" />
+        </a>
+        <ul class="flex items-center gap-6 md:gap-10 list-none m-0 p-0">
+          <li class="relative">
+            <a href="/" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="font-light">Home</span>
+              <span class="hover-ellipse w-fit h-fit">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#filter0_f_498_1979)">
+                    <ellipse cx="70" cy="52" rx="31" ry="13" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="filter0_f_498_1979" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                      <feGaussianBlur stdDeviation="19.05" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li class="relative">
+            <a href="#work" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="font-light">Work</span>
+              <span class="hover-ellipse w-fit h-fit">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#filter1)">
+                    <ellipse cx="70" cy="52" rx="31" ry="13" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="filter1" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                      <feGaussianBlur stdDeviation="19.05" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
+          </li>
+          <li class="relative">
+            <a href="#about" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="font-light">Me!</span>
+              <span class="hover-ellipse w-fit h-fit">
+                <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#filter2)">
+                    <ellipse cx="70" cy="52" rx="31" ry="13" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="filter2" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                      <feGaussianBlur stdDeviation="19.05" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-            <li class="nav-item">
-              <a href="#about" class="nav-link">
-                <span class="nav-text">Me!</span>
-                <span class="hover-ellipse">
-                  <svg
-                    width="140"
-                    height="104"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_498_1979)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="31"
-                        ry="13"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_498_1979"
-                        x="0.900002"
-                        y="0.900002"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="19.05"
-                          result="effect1_foregroundBlur_498_1979"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <!-- Hero Section -->
+    <main>
+      <section class="h-screen w-full flex flex-col-reverse md:flex-row justify-center items-center gap-10 md:gap-20 lg:gap-40 px-6 md:px-16">
+        <div class="flex flex-col justify-center items-start gap-4 max-w-md md:mt-72">
+          <p class="text-sm md:text-base font-light leading-relaxed text-[#d1d1d1]">
+            I design intuitive experiences by blending creativity with logic,
+            turning complex problems into elegant solutions. Beyond design, I
+            explore new softwares, sketch, and play video games. Creativity
+            isn't just limited to interfaces—it's a way of life.
+          </p>
+          <a href="#" class="text-xl md:text-2xl font-semibold italic text-white no-underline inline-block transition-transform duration-300 hover:translate-x-1">Let's Connect →</a>
+        </div>
+        <div class="flex flex-col gap-6 md:gap-11 items-end justify-center md:mb-24">
+          <p class="text-2xl md:text-[2rem] font-light">Hi, I'm</p>
+          <h1 class="beautique-font text-6xl md:text-[10rem] lg:text-[15rem] font-normal leading-[0.95] text-white text-right">
+            Akshat<br />Malviya
+          </h1>
+        </div>
+      </section>
+    </main>
 
-      <main>
-        <section class="hero">
-          <div class="batman1">
-            <p class="description">
-              I design intuitive experiences by blending creativity with logic,
-              turning complex problems into elegant solutions. Beyond design, I
-              explore new softwares, sketch, and play video games. Creativity
-              isn't just limited to interfaces—it's a way of life.
+    <!-- Work Section -->
+    <section id="work" class="w-full py-16 md:py-40 px-6 md:px-16">
+      <div class="work-header relative flex items-center gap-5 w-full px-6 md:px-32 lg:px-56 py-12 md:py-16">
+        <h1 class="afacad-font relative inline-block m-0 text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.95]">Work</h1>
+      </div>
+      
+      <div class="flex flex-col justify-center gap-10 md:gap-40">
+        <div class="flex flex-col gap-6 md:gap-10">
+          <!-- Work Item 1 -->
+          <div class="grid grid-cols-1 md:grid-cols-[20%_15%_1fr_1fr] gap-6 md:gap-10 items-center p-6 md:p-10 pb-12 md:pb-24 border-b border-white/40">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h3 class="beautique-font text-3xl md:text-4xl lg:text-5xl font-medium text-white whitespace-normal">IdendefAI</h3>
+              <a href="idendefai.html" class="text-lg md:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1">See details →</a>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-3 items-start">
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">UX Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Service Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Desktop</span>
+            </div>
+            <div class="text-base md:text-xl font-light leading-relaxed text-[#d1d1d1] max-w-md">
+              <p>This graduation thesis project focused on creating Open Guard, a shared KYC solution that streamlines data sharing across institutions while presenting a polished MVP for investors.</p>
+            </div>
+            <div class="w-full md:w-96 h-48">
+              <img src="Images/work-1.jpg" alt="Work 1" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Work Item 2 -->
+          <div class="grid grid-cols-1 md:grid-cols-[20%_15%_1fr_1fr] gap-6 md:gap-10 items-center p-6 md:p-10 pb-12 md:pb-24 border-b border-white/40">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h3 class="beautique-font text-3xl md:text-4xl lg:text-5xl font-medium text-white">Game Stop</h3>
+              <a class="text-lg md:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-3 items-start">
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">UX Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Service Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Mobile</span>
+            </div>
+            <div class="text-base md:text-xl font-light leading-relaxed text-[#d1d1d1] max-w-md">
+              <p>I design intuitive experiences by blending creativity with logic, turning complex problems into elegant solutions.</p>
+            </div>
+            <div class="w-full md:w-96 h-48">
+              <img src="Images/work-2.png" alt="Work 2" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Work Item 3 -->
+          <div class="grid grid-cols-1 md:grid-cols-[20%_15%_1fr_1fr] gap-6 md:gap-10 items-center p-6 md:p-10 pb-12 md:pb-24 border-b border-white/40">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h3 class="beautique-font text-3xl md:text-4xl lg:text-5xl font-medium text-white">Cozy Bliss</h3>
+              <a class="text-lg md:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-3 items-start">
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Industrial Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Furniture</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Mobile</span>
+            </div>
+            <div class="text-base md:text-xl font-light leading-relaxed text-[#d1d1d1] max-w-md">
+              <p>I design intuitive experiences by blending creativity with logic, turning complex problems into elegant solutions.</p>
+            </div>
+            <div class="w-full md:w-96 h-48">
+              <img src="Images/work-3.png" alt="Work 3" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Work Item 4 -->
+          <div class="grid grid-cols-1 md:grid-cols-[20%_15%_1fr_1fr] gap-6 md:gap-10 items-center p-6 md:p-10 pb-12 md:pb-24 border-b border-white/40">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h3 class="beautique-font text-3xl md:text-4xl lg:text-5xl font-medium text-white">Language Learning</h3>
+              <a class="text-lg md:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-3 items-start">
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Industrial Design</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Furniture</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Mobile</span>
+            </div>
+            <div class="text-base md:text-xl font-light leading-relaxed text-[#d1d1d1] max-w-md">
+              <p>I design intuitive experiences by blending creativity with logic, turning complex problems into elegant solutions.</p>
+            </div>
+            <div class="w-full md:w-96 h-48">
+              <img src="Images/work-4.png" alt="Work 4" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <!-- Work Item 5 -->
+          <div class="grid grid-cols-1 md:grid-cols-[20%_15%_1fr_1fr] gap-6 md:gap-10 items-center p-6 md:p-10 pb-12 md:pb-24">
+            <div class="flex flex-col gap-2 md:gap-3">
+              <h3 class="beautique-font text-3xl md:text-4xl lg:text-5xl font-medium text-white">Miscellaneous</h3>
+              <a class="text-lg md:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+            </div>
+            <div class="flex flex-col gap-2 md:gap-3 items-start">
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Sketches</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Comic Book</span>
+              <span class="text-base md:text-xl font-normal text-white py-1 px-3 border border-white rounded-full w-fit">Website Design</span>
+            </div>
+            <div class="text-base md:text-xl font-light leading-relaxed text-[#d1d1d1] max-w-md">
+              <p>I design intuitive experiences by blending creativity with logic, turning complex problems into elegant solutions.</p>
+            </div>
+            <div class="w-full md:w-96 h-48">
+              <img src="Images/work-6.png" alt="Work 6" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="w-full pt-16 md:pt-24 flex flex-col justify-center items-center gap-16 md:gap-32 px-6">
+      <div class="text-center w-full flex flex-col gap-8">
+        <h1 class="beautique-font text-[clamp(48px,16vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] -translate-x-[3%]">About</h1>
+        <h1 class="beautique-font text-[clamp(48px,16vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] translate-x-[16%]">Me</h1>
+      </div>
+      
+      <div class="flex flex-col md:flex-row w-full mx-auto gap-10">
+        <div class="flex flex-col w-full md:w-1/2 justify-center items-center -translate-y-[20%] md:-translate-y-[42%] md:ml-20">
+          <img src="Images/about.png" alt="About" class="object-contain w-full max-w-lg h-auto" />
+        </div>
+        
+        <div class="flex flex-col gap-6 md:gap-10 w-full md:w-1/2 pl-0 md:pl-[4%]">
+          <h2 class="text-[clamp(16px,4vw,80px)] font-normal leading-none text-white tracking-[0.5px]">Akshat Malviya</h2>
+          
+          <div class="flex flex-col gap-4 max-w-xl">
+            <p class="text-base md:text-lg font-normal leading-relaxed text-white/90 m-0">
+              Currently working at <b><i>Accenture</i></b> as a <b><i>UI/UX Designer.</i></b>
             </p>
-            <a href="#" class="connect-link">Let's Connect →</a>
+            <p class="text-base md:text-lg font-normal leading-relaxed text-white/90 m-0">
+              I love crafting <b><i>Creative solutions</i></b> for difficult problems. Interfaces for me are a blend of <b><i>Logic, Layout</i></b> and <b><i>Aesthetics</i></b>.
+            </p>
+            <p class="text-base md:text-lg font-normal leading-relaxed text-white/90 m-0">
+              Other than <b><i>Designing</i></b>, I love <b><i>Cooking</i></b>, <b><i>Sketching</i></b>, <b><i>Cycling</i></b>, <b><i>PC games</i></b>, and of course simping over <b><i>Batman</i></b>.
+            </p>
+            <p class="text-base md:text-lg font-normal leading-relaxed text-white/90 m-0">Download my Resume-</p>
+            <a href="Resume.pdf" class="resume-link relative inline-block w-fit no-underline italic font-semibold text-[clamp(16px,1.5vw,28px)]">Resume</a>
           </div>
-          <div class="batman2">
-            <p class="intro">Hi, I'm</p>
-            <h1>Akshat<br />Malviya</h1>
-          </div>
-        </section>
-      </main>
-      <section id="work" class="work content-wrapper">
-        <div class="work-header">
-          <h1>Work</h1>
-        </div>
-        <div class="work-container">
-          <div class="work-table">
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>IdendefAI</h3>
-                <a href="idendefai.html">See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>UX Design</span>
-                <span>Service Design</span>
-                <span>Desktop</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-1.jpg" alt="Work 1" />
-              </div>
-            </div>
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>Game Stop</h3>
-                <a>See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>UX Design</span>
-                <span>Service Design</span>
-                <span>Mobile</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-2.png" alt="Work 2" />
-              </div>
-            </div>
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>Cozy Bliss</h3>
-                <a>See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>Industrial Design</span>
-                <span>Furniture</span>
-                <span>Mobile</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-3.png" alt="Work 3" />
-              </div>
-            </div>
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>Language Learning Companion</h3>
-                <a>See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>Industrial Design</span>
-                <span>Furniture</span>
-                <span>Mobile</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-4.png" alt="Work 4" />
-              </div>
-            </div>
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>Graphic Design</h3>
-                <a>See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>Logo Design</span>
-                <span>Packaging Design</span>
-                <span>Publication Design</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-5.jpg" alt="Work 5" />
-              </div>
-            </div>
-            <div class="work-item">
-              <div class="work-item-content">
-                <h3>Miscellaneous Projects</h3>
-                <a>See details →</a>
-              </div>
-              <div class="work-item-tags">
-                <span>Sketches</span>
-                <span>Comic Book</span>
-                <span>Website Design</span>
-              </div>
-              <div class="work-item-description">
-                <p>
-                  I design intuitive experiences by blending creativity with
-                  logic, turning complex problems into elegant solutions. Beyond
-                  design, I explore new software, sketch, and play video games.
-                  Creativity isn’t just limited to interfaces—it’s a way of
-                  life.
-                </p>
-              </div>
-              <div class="work-item-image">
-                <img src="Images/work-6.png" alt="Work 6" />
-              </div>
-            </div>
+          
+          <div class="flex gap-2 -translate-x-[3%] pt-6 md:pt-10">
+            <a href="#" class="social-link relative inline-block">
+              <img src="Images/icons/LinkedIn.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
+              <span class="social-hover w-[120px] h-[100px]">
+                <svg width="120" height="100" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#social1)">
+                    <ellipse cx="70" cy="52" rx="20" ry="9" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="social1" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" />
+                      <feBlend mode="normal" in="SourceGraphic" />
+                      <feGaussianBlur stdDeviation="12" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
+            <a href="#" class="social-link relative inline-block">
+              <img src="Images/icons/Instagram.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
+              <span class="social-hover w-[120px] h-[100px]">
+                <svg width="120" height="100" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#social2)">
+                    <ellipse cx="70" cy="52" rx="20" ry="9" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="social2" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" />
+                      <feBlend mode="normal" in="SourceGraphic" />
+                      <feGaussianBlur stdDeviation="12" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
+            <a href="#" class="social-link relative inline-block">
+              <img src="Images/icons/Behance.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
+              <span class="social-hover w-[120px] h-[100px]">
+                <svg width="120" height="100" viewBox="0 0 140 104" fill="none">
+                  <g filter="url(#social3)">
+                    <ellipse cx="70" cy="52" rx="20" ry="9" fill="#F42C04" fill-opacity="0.6" />
+                  </g>
+                  <defs>
+                    <filter id="social3" x="0.9" y="0.9" width="138.2" height="102.2">
+                      <feFlood flood-opacity="0" />
+                      <feBlend mode="normal" in="SourceGraphic" />
+                      <feGaussianBlur stdDeviation="12" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+            </a>
           </div>
         </div>
-      </section>
-      <section id="about" class="about">
-        <div class="about-header">
-          <h1 class="beautique-font text-[clamp(48px,16vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] translate-x-[-8%]">About</h1>
-          <h1 class="beautique-font text-[clamp(48px,16vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] translate-x-[9%]">Me</h1>
-        </div>
-        <div class="about-container">
-          <div class="about-images translate-y-[-42%]">
-            <img src="Images/about.png" alt="About" />
-            <!-- <img
-              src="Images/about-1.jpg"
-              alt="About 1"
-              class="about-image-1"
-            />
-            <img
-              src="Images/about-2.jpg"
-              alt="About 2"
-              class="about-image-2"
-            />
-            <img
-              src="Images/about-3.png"
-              alt="About 3"
-              class="about-image-3"
-            />
-            <img
-              src="Images/about-4.png"
-              alt="About 4"
-              class="about-image-4"
-            />
-            <img
-              src="Images/about-5.png"
-              alt="About 5"
-              class="about-image-5"
-            /> -->
-          </div>
-          <div class="about-content">
-            <h2>Akshat Malviya</h2>
-            <div class="about-text">
-              <p>
-                Currently working at <b><i>Accenture</i></b> as a
-                <b><i>UI/UX Designer.</i></b>
-              </p>
-              <p>
-                I love crafting
-                <b><i>Creative solutions</i></b>
-                for difficult problems. Interfaces for me are a blend of
-                <b><i>Logic, Layout</i></b>
-                and
-                <b><i>Aesthetics</i></b
-                >. I see designing as a way of putting down the craziness from
-                my mind in the form of
-                <b><i>Creativity</i></b>
-                and then sculpting it down with
-                <b><i>Logic</i></b>
-                and
-                <b><i>Thinking</i></b>
-                to form a solution. I am an active
-                <b><i>Software enthusiast</i></b>
-                and love to try out new softwares just for fun!
-              </p>
-              <p>
-                Other than <b><i>Designing</i></b
-                >, I love <b><i>Cooking</i></b
-                >, <b><i>Sketching</i></b
-                >, <b><i>Cycling</i></b
-                >, <b><i>PC games</i></b
-                >, and of course simping over <b><i>Batman</i></b
-                >.
-              </p>
-              <p>Download my Resume-</p>
-              <a href="Resume.pdf" class="resume-link">Resume</a>
-            </div>
-            <div class="social-icons translate-x-[-3%] pt-10">
-              <a href="#" class="social-link"
-                ><img src="Images/icons/LinkedIn.svg" />
-                <span class="hover-ellipse social-hover">
-                  <svg
-                    width="120"
-                    height="100"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_social)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="20"
-                        ry="9"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_social"
-                        x="0.9"
-                        y="0.9"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="12"
-                          result="effect1_foregroundBlur_social"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-              <a href="#" class="social-link"
-                ><img src="Images/icons/Instagram.svg" />
-                <span class="hover-ellipse social-hover">
-                  <svg
-                    width="120"
-                    height="100"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_social)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="20"
-                        ry="9"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_social"
-                        x="0.9"
-                        y="0.9"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="12"
-                          result="effect1_foregroundBlur_social"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-              <a href="#" class="social-link"
-                ><img src="Images/icons/Behance.svg" />
-                <span class="hover-ellipse social-hover">
-                  <svg
-                    width="120"
-                    height="100"
-                    viewBox="0 0 140 104"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g filter="url(#filter0_f_social)">
-                      <ellipse
-                        cx="70"
-                        cy="52"
-                        rx="20"
-                        ry="9"
-                        fill="#F42C04"
-                        fill-opacity="0.6"
-                      />
-                    </g>
-                    <defs>
-                      <filter
-                        id="filter0_f_social"
-                        x="0.9"
-                        y="0.9"
-                        width="138.2"
-                        height="102.2"
-                        filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB"
-                      >
-                        <feFlood
-                          flood-opacity="0"
-                          result="BackgroundImageFix"
-                        />
-                        <feBlend
-                          mode="normal"
-                          in="SourceGraphic"
-                          in2="BackgroundImageFix"
-                          result="shape"
-                        />
-                        <feGaussianBlur
-                          stdDeviation="12"
-                          result="effect1_foregroundBlur_social"
-                        />
-                      </filter>
-                    </defs>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="footer">
-        <p>
-          Liked what you saw? Let me know at <a class="email" href="mailto:akshatm535@gmail.com"><b><i>akshatm535@gmail.com</i></b></a>
-        </p>
-        <p>Designed and coded with ❤️.</p>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="w-full text-center flex flex-col items-center gap-2 pb-16 md:pb-24 px-6">
+      <p class="text-base md:text-lg font-normal">
+        Liked what you saw? Let me know at
+        <a class="hover:text-[#34b7f1] hover:underline" href="mailto:akshatm535@gmail.com">
+          <b><i>akshatm535@gmail.com</i></b>
+        </a>
+      </p>
+      <p class="text-base md:text-lg font-normal">Designed and coded with ❤️.</p>
+    </section>
   </body>
 </html>

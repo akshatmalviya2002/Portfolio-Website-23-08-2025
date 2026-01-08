@@ -10,6 +10,10 @@
       rel="stylesheet"
     />
     <style type="text/tailwindcss">
+      html {
+        scroll-behavior: smooth;
+      }
+
       @font-face {
         font-family: "Beautique Display Condensed";
         src: url("Fonts/BeautiqueDisplayCondensed-Regular.otf") format("opentype");
@@ -64,96 +68,45 @@
         transform: translate(-50%, -50%) scale(1.8);
       }
 
-      /* Work header lines - rigid on 1521px+ */
-      @media (min-width: 1521px) {
-        .work-header::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          height: 1px;
-          background-color: rgba(255, 255, 255);
-          pointer-events: none;
-          left: -0.3rem;
-          width: 13.5vw;
-        }
-        
-        .work-header::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          height: 1px;
-          background-color: rgba(255, 255, 255);
-          pointer-events: none;
-          right: -0.2rem;
-          width: 53.7vw;
+      /* === WORK HEADER === */
+      .work-header {
+        width: 100%;
+      }
+
+      .work-header-inner {
+        width: 100%;
+        display: grid;
+        align-items: center;
+        column-gap: clamp(1.5rem, 3vw, 4rem);
+        grid-template-columns: 1fr auto 1.5fr;
+      }
+
+
+      @media (min-width: 1280px) {
+        .work-header-inner {
+          grid-template-columns: 0.75fr 1fr 2fr;
         }
       }
 
-      /* Removed invalid media query (min-width:1536px and max-width:1520px) */
 
-      @media (max-width: 1535px) {
-        .work-header::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          height: 1px;
-          background-color: rgba(255, 255, 255);
-          pointer-events: none;
-          left: -4rem;
-          width: 19vw;
-        }
-        
-        .work-header::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          height: 1px;
-          background-color: rgba(255, 255, 255);
-          pointer-events: none;
-          right: -8rem;
-          width: 52vw;
-        }
+      .work-header-line {
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.4);
       }
 
-      @media (max-width: 1023.99px) {
-        .work-header::before {
-          left: 0;
-          width: 14vw;
-        }
-        
-        .work-header::after {
-          right: 0;
-          width: 56vw;
-        }
+      .work-header-line.left {
+        grid-column: 1 / 2;
       }
 
-      @media (max-width: 768px) {
-        .work-header::before {
-          left: -1rem;
-          width: 10vw;
-        }
-        
-        .work-header::after {
-          right: -1rem;
-          width: 45vw;
-        }
+      .work-header-title {
+        grid-column: 2 / 3;
+        white-space: nowrap;
       }
 
-      @media (max-width: 480px) {
-        .work-header::before {
-          left: -0.5rem;
-          width: 8vw;
-        }
-        
-        .work-header::after {
-          right: -0.5rem;
-          width: 40vw;
-        }
+      .work-header-line.right {
+        grid-column: 3 / 5;
       }
+
 
       /* Resume link underline animation */
       .resume-link::after {
@@ -172,23 +125,120 @@
       .resume-link:hover::after {
         transform: scaleX(1);
       }
+      
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
   </head>
 
-  <body class="bg-[#1b1b1b] text-[#e8e8e8] min-h-screen overflow-x-hidden scroll-smooth mx-auto">
+  <body class="bg-[#1b1b1b] text-[#e8e8e8] min-h-screen scroll-smooth mx-auto overflow-x-clip">
     <!-- Glows -->
-    <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-90 -top-[10vmax] -right-[25vmax]"></div>
-    <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-70 -bottom-[20vmax] -left-[15vmax]"></div>
+    <!-- <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-90 -top-[10vmax] -right-[25vmax]"></div>
+    <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-70 -bottom-[20vmax] -left-[15vmax]"></div> -->
+    <!-- Shape 1 at left top -->
+    <div class="relative w-full max-w-[100vw] overflow-x-clip">
+      <div class="absolute -z-50 left-0 w-full overflow-hidden">
+        <svg width="1184" height="1707" viewBox="0 0 1184 1707" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2428)">
+            <circle cx="83.3548" cy="606.413" r="587.369" fill="#F42C04" fill-opacity="0.4"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2428" x="-1016.91" y="-493.856" width="2200.54" height="2200.54" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="256.45" result="effect1_foregroundBlur_586_2428"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2428" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+                <feFuncA type="table" tableValues="0 0.07" />
+              </feComponentTransfer>
+              <feMerge result="effect2_noise_586_2428">
+              <feMergeNode in="effect1_foregroundBlur_586_2428" />
+              <feMergeNode in="color1" />
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <!-- Shape 2 at left below 1 -->
+      <div class="absolute -z-50 left-0 lg:translate-y-[-20%] w-full overflow-hidden">
+        <svg width="958" height="1541" viewBox="0 0 958 1541" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2427)">
+            <path d="M-48.9451 464.467C-77.8465 415.225 -121.682 333.782 -147.497 286.48C-156.294 278.865 -174.454 287.702 -182.435 293.072C-190.026 299.145 -208.021 295.104 -212.758 305.762C-218.71 319.154 -220.85 332.186 -218.526 347.292C-214.399 374.117 -203.839 403.202 -191.993 427.551C-178.555 455.175 -183.094 489.604 -183.094 519.511C-183.094 552.939 -182.838 582.356 -193.476 614.272C-205.675 650.868 -217.242 686.784 -226.272 724.195C-240.704 783.983 -248.851 841.563 -248.356 903.499C-248.061 940.306 -240.984 979.008 -216.714 1007.98C-175.453 1057.24 -120.243 1100.65 -64.1069 1131.59C-5.33336 1163.97 62.4749 1185.43 129.7 1187.95C211.164 1190.99 294.087 1190.04 375.256 1183C448.365 1176.67 561.064 1168.97 596.42 1089.73C618.095 1041.14 600.779 977.773 579.281 931.845C549.031 867.221 498.187 817.432 445.956 770.175C419.192 745.96 386.965 729.28 356.468 710.351C290.137 669.18 221.25 635.723 150.795 601.912C114.764 584.62 78.0946 568.363 42.3553 550.493C27.7974 543.214 12.9816 536.297 -0.987656 527.915C-22.3121 515.121 -37.7458 483.548 -48.9451 464.467Z" fill="#F42C04" fill-opacity="0.7"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2427" x="-599.477" y="-67.5844" width="1556.97" height="1608.27" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="175.55" result="effect1_foregroundBlur_586_2427"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2427" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+                <feFuncA type="table" tableValues="0 0.07" />
+              </feComponentTransfer>
+              <feMerge result="effect2_noise_586_2427">
+                <feMergeNode in="effect1_foregroundBlur_586_2427" />
+                <feMergeNode in="color1" />
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <!-- Shape 3 at right -->
+      <div class="absolute -z-50 right-0 top-0 w-[100vw] md:w-[65vw] xl:w-[60vw] overflow-hidden pointer-events-none">
+        <svg width="1309" height="1412" viewBox="0 0 1309 1412" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2423)">
+            <path d="M404.264 -151.842C449.52 -192.688 507.361 -238.509 553.937 -276.357C561.965 -287.844 588.278 -297.915 600.431 -301.515C626.087 -310.933 649.566 -324.201 676.382 -330.813C718.991 -341.319 762.098 -349.455 804.719 -359.633C888.639 -379.674 972.616 -391.601 1058.85 -379.059C1140.3 -367.21 1222.78 -347.114 1299.76 -318.075C1380.61 -287.573 1465.06 -253.716 1527.13 -191.649C1567.43 -151.346 1566.59 -108.976 1565.52 -55.0325L1565.5 -54.0767C1564.51 -3.82285 1557.57 44.5696 1564.39 94.8003C1571.99 150.796 1592.72 201.959 1626.49 247.18C1653.94 283.948 1685.61 319.631 1706.74 360.55C1730.75 407.05 1723.68 462.294 1723.3 513.089C1722.79 581.381 1716.18 647.583 1686.04 709.575C1647.16 789.544 1607.18 869.025 1547.19 935.518C1503.26 984.219 1455.99 1035.04 1405.48 1076.91C1351.93 1121.3 1263.78 1105.71 1199.44 1102.86C1148.05 1100.59 1098.95 1090.35 1052.64 1067.2C959.477 1020.62 862.686 942.888 803.445 855.586C765.425 799.556 760.822 741.212 767.619 675.182C771.681 635.729 772.098 596.703 771.759 557.036C771.617 540.365 770.487 522.327 763.798 506.72C758.841 495.153 739.969 487.972 729.723 483.154C706.353 472.166 681.66 463.951 657.594 454.653C611.258 436.75 564.231 420.875 517.952 402.745C469.368 383.712 421.936 362.964 384.838 325.52C352.239 292.617 330.71 253.73 318.918 208.966C306.18 160.608 300.806 109.918 305.225 59.9297C308.997 17.2521 319.518 -29.0433 335.159 -68.8848C348.307 -102.374 378.444 -128.538 404.264 -151.842Z" fill="#F42C04"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2423" x="0.000183105" y="-687.898" width="2028.26" height="2099.43" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="151.85" result="effect1_foregroundBlur_586_2423"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2423" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+              <feFuncA type="table" tableValues="0 0.07" />
+              </feComponentTransfer>
+                <feMerge result="effect2_noise_586_2423">
+                  <feMergeNode in="effect1_foregroundBlur_586_2423" />
+                  <feMergeNode in="color1" />
+                </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
 
     <!-- Header / Navbar -->
-    <header>
-      <nav class="flex flex-row gap-10 lg:gap-[72px] items-start lg:items-center px-6 md:px-10 pt-6 md:pt-8">
+    <header  class="sticky top-0 z-50 px-[5.5vw]">
+      <nav class="flex flex-row gap-10 lg:gap-[72px] items-start lg:items-center px-6 md:px-10 pt-6 pb-6 backdrop-blur-md">
         <a href="/" class="w-12 h-12">
           <img src="Images/logo.png" alt="Logo" class="w-full h-full object-contain" />
         </a>
         <ul class="flex items-center gap-6 md:gap-10 list-none m-0 p-0">
           <li class="relative">
-            <a href="/" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+            <a href="#" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
               <span class="font-light">Home</span>
               <span class="hover-ellipse w-fit h-fit">
                 <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
@@ -270,15 +320,114 @@
     </main>
 
     <!-- Work Section -->
-    <section id="work" class="w-full py-16 md:py-40 px-6 lg:px-16">
-      <div class="work-header relative flex items-center gap-5 w-full px-6 md:px-32 lg:px-56 py-12 md:py-16">
-        <h1 class="afacad-font relative inline-block m-0 text-5xl xl:text-[10rem] leading-[0.95]">Work</h1>
+     <div class="relative w-full max-w-[100vw] overflow-x-clip">
+      <!-- Shape 4 at left -->
+      <div class="absolute -z-50 left-0 right-0 w-full overflow-hidden">
+        <svg width="1024" height="645" viewBox="0 0 1024 645" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2429)">
+            <ellipse cx="354.001" cy="322.2" rx="439" ry="91.5" fill="#F42C04" fill-opacity="0.6"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2429" x="-315.699" y="1.52588e-05" width="1339.4" height="644.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="115.35" result="effect1_foregroundBlur_586_2429"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2429" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+              <feFuncA type="table" tableValues="0 0.07" />
+              </feComponentTransfer>
+                <feMerge result="effect2_noise_586_2429">
+                  <feMergeNode in="effect1_foregroundBlur_586_2429" />
+                  <feMergeNode in="color1" />
+                </feMerge>
+            </filter>
+          </defs>
+        </svg>
       </div>
-      
+      <!-- Shape 5 at middle -->
+      <div class="absolute -z-50 left-0 right-0 lg:translate-y-[35%] w-full overflow-hidden">
+        <svg width="1398" height="1312" viewBox="0 0 1398 1312" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2430)">
+            <ellipse cx="499.627" cy="655.953" rx="427.139" ry="185.353" fill="#F42C04" fill-opacity="0.6"/>
+          </g>
+        <defs>
+          <filter id="filter0_fn_586_2430" x="-398.112" y="-3.05176e-05" width="1795.48" height="1311.91" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="235.3" result="effect1_foregroundBlur_586_2430"/>
+            <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+            <feComponentTransfer in="noise" result="coloredNoise1">
+              <feFuncR type="linear" slope="2" intercept="-0.5" />
+              <feFuncG type="linear" slope="2" intercept="-0.5" />
+              <feFuncB type="linear" slope="2" intercept="-0.5" />
+              <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+            </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2430" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+            <feFuncA type="table" tableValues="0 0.07" />
+            </feComponentTransfer>
+              <feMerge result="effect2_noise_586_2430">
+              <feMergeNode in="effect1_foregroundBlur_586_2430" />
+              <feMergeNode in="color1" />
+            </feMerge>
+          </filter>
+          </defs>
+        </svg>
+      </div>
+      <!-- Shape 6 at right -->
+        <div class="absolute -z-50 right-0 overflow-hidden">
+        <svg width="1268" height="2916" viewBox="0 0 1268 2916" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2431)">
+            <path d="M1200.1 560.069C1263.44 541.959 1291.52 544.789 1355.64 547.468C1365.65 547.333 1388.58 548.803 1400.16 555.762C1409.68 564.479 1414.93 573.007 1426.2 579.452C1463.84 600.976 1503.56 614.925 1544.98 624.679C1588.56 634.941 1631.46 641.805 1672.55 661.65C1701.14 675.46 1726.85 706.273 1746.76 732.72C1774.11 769.044 1804.38 802.632 1818.78 849.017C1847.1 940.212 1842.68 1033.96 1852.83 1128.81C1864.1 1234.03 1922.02 1324.04 1970.67 1410.4C1997.23 1457.55 2023.56 1507.19 2036.1 1561.87C2050.71 1625.6 2044.32 1708.12 2031.7 1771.49L2030.27 1778.73C2007.94 1890.92 1984.89 2006.8 1931.76 2105.67C1879.32 2203.23 1801.83 2307.83 1703.61 2344.36C1640.46 2367.85 1575.71 2371.22 1509.83 2370.39C1426.23 2369.32 1342.13 2362.1 1259.88 2344.36C1084.49 2306.53 911.433 2219.91 765.001 2103.16C689.202 2042.72 613.863 1965.99 570.751 1871.1C542.125 1808.09 540.061 1729.71 553.492 1660.58C560.771 1623.11 575.536 1598.06 597.425 1569.23C625.481 1532.28 654.962 1497.49 687.803 1466.04C718.139 1436.99 747.925 1408.15 773.16 1373.07C804.198 1329.93 825.102 1280.67 841.101 1228.06C869.943 1133.21 869.51 1031.36 881.112 933.009C887.052 882.648 892.606 832.645 912.336 786.382C926.481 753.214 951.478 723.893 976.04 700.595C1022.58 656.446 1077.28 621.898 1131.22 591.297C1153.43 578.698 1175.97 566.97 1200.1 560.069Z" fill="#F42C04" fill-opacity="0.5"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2431" x="0" y="0" width="2590" height="2916" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="272.75" result="effect1_foregroundBlur_586_2431"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2431" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+              <feFuncA type="table" tableValues="0 0.07" />
+                </feComponentTransfer>
+                  <feMerge result="effect2_noise_586_2431">
+                  <feMergeNode in="effect1_foregroundBlur_586_2431" />
+                  <feMergeNode in="color1" />
+                </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+    <section id="work" class="w-full py-16 md:py-40 px-6 lg:px-16">
+      <div class="work-header mb-24">
+        <div class="work-header-inner">
+          <div class="work-header-line left"></div>
+
+          <h1 class="work-header-title afacad-font text-6xl xl:text-[10rem] leading-[0.95]">
+            Work
+          </h1>
+
+          <div class="work-header-line right"></div>
+        </div>
+      </div>
       <div class="flex flex-col justify-center gap-10 md:gap-40">
         <div class="flex flex-col gap-6 xl:gap-10">
           <!-- Work Item 1 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center xl:p-10 pb-12 xl:pb-24 border-b border-white">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-1.png" alt="Work 1" class="w-full h-full object-cover" />
@@ -304,7 +453,7 @@
           </div>
 
           <!-- Work Item 2 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-2.png" alt="Work 2" class="w-full h-full object-cover" />
@@ -330,7 +479,7 @@
           </div>
 
           <!-- Work Item 3 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-3.png" alt="Work 3" class="w-full h-full object-cover" />
@@ -356,7 +505,7 @@
           </div>
 
           <!-- Work Item 4 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-4.png" alt="Work 4" class="w-full h-full object-cover" />
@@ -412,10 +561,42 @@
     </section>
 
     <!-- About Section -->
+     <div class="relative w-full max-w-[100vw] overflow-x-clip">
+      <!-- Shape 7 -->
+      <div class="absolute -z-50 w-full overflow-hidden">
+        <svg width="1447" height="1854" viewBox="0 0 1447 1854" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_fn_586_2424)">
+            <path d="M3.41713 520.968C-22.2911 516.4 -51.0298 512.158 -75.7204 502.404C-79.4704 515.886 -65.826 522.661 -58.535 524.363C-58.535 535.839 -58.9708 548.775 -51.7458 558.628C-38.0385 577.319 -18.061 590.573 0.765068 603.606C36.0148 628.01 75.4653 645.052 111.197 668.635C133.421 683.303 155.628 699.601 170.603 721.995C185.412 744.14 188.942 767.562 187.47 793.812C185.709 825.213 176.322 856.032 172.513 887.271C167.247 930.449 168.127 973.158 177.074 1015.84C204.51 1146.73 277.988 1255.43 390.3 1328.15C525.604 1415.76 691.878 1484.06 855.472 1471.57C944.256 1464.8 1052.14 1431.89 1064.45 1328.79C1074.97 1240.75 1022.75 1156.21 974.072 1088.19C946.685 1049.92 922.03 1009.85 895.359 971.076C873.646 939.514 853.23 905.692 837.862 870.51C822.546 835.448 819.26 797.04 826.193 759.442C834.128 716.409 859.187 677.719 882.841 641.796C908.793 602.383 981.856 521.347 936.731 471.003C904.707 435.276 850.027 415.877 805.613 402.686C738.161 382.654 667.315 378.016 597.267 381.045C527.985 384.041 464.448 401.044 398.68 423.266C312.855 452.265 229.075 486.692 144.189 518.21C120.136 527.141 112.702 531.724 88.6014 531.47C60.8822 531.179 30.6837 525.813 3.76579 521.03L3.41713 520.968Z" fill="#F42C04" fill-opacity="0.6"/>
+          </g>
+          <defs>
+            <filter id="filter0_fn_586_2424" x="-456.56" y="-6.10352e-05" width="1902.58" height="1853.25" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="190.1" result="effect1_foregroundBlur_586_2424"/>
+              <feTurbulence type="fractalNoise" baseFrequency="2.5 2.5" stitchTiles="stitch" numOctaves="3" result="noise" seed="250" />
+              <feComponentTransfer in="noise" result="coloredNoise1">
+                <feFuncR type="linear" slope="2" intercept="-0.5" />
+                <feFuncG type="linear" slope="2" intercept="-0.5" />
+                <feFuncB type="linear" slope="2" intercept="-0.5" />
+                <feFuncA type="discrete" tableValues="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+              </feComponentTransfer>
+              <feComposite operator="in" in2="effect1_foregroundBlur_586_2424" in="coloredNoise1" result="noise1Clipped" />
+              <feComponentTransfer in="noise1Clipped" result="color1">
+                <feFuncA type="table" tableValues="0 0.07" />
+              </feComponentTransfer>
+              <feMerge result="effect2_noise_586_2424">
+                <feMergeNode in="effect1_foregroundBlur_586_2424" />
+                <feMergeNode in="color1" />
+              </feMerge>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
     <section id="about" class="w-full pt-16 md:pt-24 flex flex-col justify-center items-center gap-16 md:gap-32 px-6">
-      <div class="text-center w-full flex flex-col gap-8 overflow-hidden">
-        <h1 class="beautique-font text-[clamp(72px,20vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] -translate-x-[3%]">About</h1>
-        <h1 class="beautique-font text-[clamp(72px,20vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] translate-x-[16%]">Me</h1>
+      <div class="text-center w-full flex flex-col gap-8 overflow-x-clip">
+        <h1 class="beautique-font text-[clamp(72px,20vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] -translate-x-[3vw]">About</h1>
+        <h1 class="beautique-font text-[clamp(72px,20vw,300px)] font-medium leading-[0.9] text-white tracking-[0.5px] translate-x-[16vw]">Me</h1>
       </div>
       
       <div class="flex flex-col sm:flex-row w-full mx-auto sm:gap-10">
@@ -441,7 +622,7 @@
             <a href="AkshatMalviya_Resume.pdf" download="AkshatMalviya_Resume.pdf" class="resume-link relative inline-block w-fit no-underline italic font-semibold text-[clamp(16px,1.5vw,28px)]">Resume</a>
           </div>
           
-          <div class="flex gap-2 -translate-x-[3%] pt-6 md:pt-10">
+          <div class="flex gap-2 -translate-x-[3vw] pt-6 md:pt-10">
             <a href="#" class="social-link relative inline-block">
               <img src="Images/icons/LinkedIn.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
               <span class="social-hover hover-ellipse w-[120px] h-[100px]">

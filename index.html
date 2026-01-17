@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="/Images/logo.png"/>
     <style type="text/tailwindcss">
       html {
         scroll-behavior: smooth;
@@ -68,6 +69,37 @@
         transform: translate(-50%, -50%) scale(1.8);
       }
 
+      /* Unified underline animation for Nav, Hero, and Work links */
+      .nav-link, .connect-link {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Update this block in your <style> tag */
+      .nav-link, .connect-link {
+        position: relative;
+        width: fit-content; /* Force the hit area to match text width */
+        display: inline-flex; /* Use flex to align text and arrow perfectly */
+        align-items: center;
+      }
+
+      .nav-link::after, .connect-link::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1.5px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transition: transform 0.3s ease-out;
+        transform-origin: bottom left;
+      }
+
+      .nav-link:hover::after, .connect-link:hover::after {
+        transform: scaleX(1);
+      }
+
       /* === WORK HEADER === */
       .work-header {
         width: 100%;
@@ -88,7 +120,6 @@
         }
       }
 
-
       .work-header-line {
         height: 2px;
         background-color: rgba(255, 255, 255, 0.4);
@@ -106,7 +137,6 @@
       .work-header-line.right {
         grid-column: 3 / 5;
       }
-
 
       /* Resume link underline animation */
       .resume-link::after {
@@ -231,8 +261,8 @@
     </div>
 
     <!-- Header / Navbar -->
-    <header  class="sticky top-0 z-50 px-[5.5vw]">
-      <nav class="flex flex-row gap-10 lg:gap-[72px] items-start lg:items-center px-6 md:px-10 pt-6 pb-6 backdrop-blur-md">
+    <header  class="sticky top-0 z-50 px-[5.5vw] backdrop-blur-md">
+      <nav class="flex flex-row gap-10 lg:gap-[72px] items-start lg:items-center px-6 md:px-10 pt-6 pb-6">
         <a href="/" class="w-12 h-12">
           <img src="Images/logo.png" alt="Logo" class="w-full h-full object-contain" />
         </a>
@@ -308,7 +338,7 @@
             explore new softwares, sketch, and play video games. Creativity
             isn't just limited to interfaces—it's a way of life.
           </p>
-          <a href="#" class="text-xl md:text-2xl font-semibold italic text-white no-underline inline-block transition-transform duration-300 hover:translate-x-1">Let's Connect →</a>
+          <a href="#" class="connect-link text-xl md:text-2xl font-semibold italic text-white no-underline inline-block transition-transform duration-300">Let's Connect →</a>
         </div>
         <div class="flex flex-col gap-6 md:gap-11 items-end justify-center lg:mb-24">
           <p class="text-5xl md:text-[2rem] font-light">Hi, I'm</p>
@@ -427,7 +457,7 @@
       <div class="flex flex-col justify-center gap-10 md:gap-40">
         <div class="flex flex-col gap-6 xl:gap-10">
           <!-- Work Item 1 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pb-12 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-1.png" alt="Work 1" class="w-full h-full object-cover" />
@@ -436,7 +466,7 @@
             <!-- Title & Link - spans 1 column on mobile/tablet -->
             <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
               <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">IdendefAI</h3>
-              <a href="idendefai.html" class="text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1">See details →</a>
+              <a href="idendefai.html" class="nav-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic">See details →</a>
             </div>
             
             <!-- Tags - spans 1 column on mobile/tablet -->
@@ -453,7 +483,7 @@
           </div>
 
           <!-- Work Item 2 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-2.png" alt="Work 2" class="w-full h-full object-cover" />
@@ -462,7 +492,7 @@
             <!-- Title & Link - spans 1 column on mobile/tablet -->
             <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
               <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Cozy Bliss</h3>
-              <a class="text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+              <a class="nav-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic cursor-pointer">See details →</a>
             </div>
             
             <!-- Tags - spans 1 column on mobile/tablet -->
@@ -479,7 +509,7 @@
           </div>
 
           <!-- Work Item 3 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-3.png" alt="Work 3" class="w-full h-full object-cover" />
@@ -488,7 +518,7 @@
             <!-- Title & Link - spans 1 column on mobile/tablet -->
             <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
               <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Talk Tango</h3>
-              <a class="text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+              <a class="nav-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic cursor-pointer">See details →</a>
             </div>
             
             <!-- Tags - spans 1 column on mobile/tablet -->
@@ -505,7 +535,7 @@
           </div>
 
           <!-- Work Item 4 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24 border-b border-white/40">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24 border-b border-white/40">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-4.png" alt="Work 4" class="w-full h-full object-cover" />
@@ -514,7 +544,7 @@
             <!-- Title & Link - spans 1 column on mobile/tablet -->
             <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
               <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Game Stop</h3>
-              <a class="text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+              <a class="nav-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic cursor-pointer">See details →</a>
             </div>
             
             <!-- Tags - spans 1 column on mobile/tablet -->
@@ -530,7 +560,7 @@
           </div>
 
           <!-- Work Item 5 -->
-          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 xl:p-10 pb-12 xl:pb-24">
+          <div class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24">
             <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
             <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
               <img src="Images/work-5.png" alt="Work 6" class="w-full h-full object-cover" />
@@ -539,7 +569,7 @@
             <!-- Title & Link - spans 1 column on mobile/tablet -->
             <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
               <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Other Explorations</h3>
-              <a class="text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic hover:translate-x-1 cursor-pointer">See details →</a>
+              <a class="nav-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic cursor-pointer">See details →</a>
             </div>
             
             <!-- Tags - spans 1 column on mobile/tablet -->

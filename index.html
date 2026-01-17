@@ -160,6 +160,28 @@
         max-width: 100%;
         height: auto;
       }
+
+      .bg-red-glow {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        width: 67px;
+        height: 21px;
+        background: rgba(244, 44, 4, 0.6);
+        filter: blur(19.05px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .nav-link:hover .bg-red-glow {
+        opacity: 1;
+      }
+
+      .social-link:hover .bg-red-glow {
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -269,6 +291,7 @@
         <ul class="flex items-center gap-6 md:gap-10 list-none m-0 p-0">
           <li class="relative">
             <a href="#" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="bg-red-glow"></span>
               <span class="font-light">Home</span>
               <span class="hover-ellipse w-fit h-fit">
                 <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
@@ -288,6 +311,7 @@
           </li>
           <li class="relative">
             <a href="#work" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="bg-red-glow"></span>
               <span class="font-light">Work</span>
               <span class="hover-ellipse w-fit h-fit">
                 <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
@@ -307,6 +331,7 @@
           </li>
           <li class="relative">
             <a href="#about" class="nav-link relative no-underline text-white/60 text-base md:text-lg font-light px-3 py-2 inline-block transition-colors duration-300 hover:text-white">
+              <span class="bg-red-glow"></span>
               <span class="font-light">Me!</span>
               <span class="hover-ellipse w-fit h-fit">
                 <svg width="140" height="104" viewBox="0 0 140 104" fill="none">
@@ -653,7 +678,8 @@
           </div>
           
           <div class="flex gap-2 -translate-x-[3vw] pt-6 md:pt-10">
-            <a href="#" class="social-link relative inline-block">
+            <a href="https://www.linkedin.com/in/akshat-malviya-2242ab200/" target="_blank" class="social-link relative inline-block">
+              <span class="bg-red-glow"></span>
               <img src="Images/icons/LinkedIn.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
               <span class="social-hover hover-ellipse w-[120px] h-[100px]">
                 <svg width="120" height="100" viewBox="0 0 140 104" fill="none">
@@ -670,7 +696,8 @@
                 </svg>
               </span>
             </a>
-            <a href="#" class="social-link relative inline-block">
+            <a href="https://www.instagram.com/colorquest_f42c04?utm_source=qr&igsh=MTB6cmhvcWExeGc5" target="_blank" class="social-link relative inline-block">
+              <span class="bg-red-glow"></span>
               <img src="Images/icons/Instagram.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
               <span class="social-hover hover-ellipse w-[120px] h-[100px]">
                 <svg width="120" height="100" viewBox="0 0 140 104" fill="none">
@@ -687,7 +714,8 @@
                 </svg>
               </span>
             </a>
-            <a href="#" class="social-link relative inline-block">
+            <a href="https://www.behance.net/akshatmalviya" target="_blank" class="social-link relative inline-block">
+              <span class="bg-red-glow"></span>
               <img src="Images/icons/Behance.svg" class="w-20 h-20 md:w-24 md:h-24 z-10 relative" />
               <span class="social-hover hover-ellipse w-[120px] h-[100px]">
                 <svg width="120" height="100" viewBox="0 0 140 104" fill="none">

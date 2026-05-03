@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Akshat Malviya's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/Images/logo.png" />
   <style type="text/tailwindcss">
     html {
@@ -24,6 +26,19 @@
 
       body {
         font-family: "Afacad", sans-serif;
+      }
+
+      .noise-overlay {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.06;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 200px 200px;
       }
 
       .afacad-font {
@@ -184,7 +199,8 @@
     </style>
 </head>
 
-<body class="relative bg-[#1b1b1b] text-[#e8e8e8] min-h-screen scroll-smooth mx-auto overflow-x-clip">
+<body class="relative bg-[#0b0b0b] text-[#e8e8e8] min-h-screen scroll-smooth mx-auto overflow-x-clip">
+  <div class="noise-overlay"></div>
   <!-- Glows -->
   <!-- <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-90 -top-[10vmax] -right-[25vmax]"></div>
     <div class="fixed pointer-events-none -z-10 w-[60vmax] h-[60vmax] blur-[90px] bg-[radial-gradient(closest-side,rgba(244,44,4,0.65),rgba(244,44,4,0)_65%)] opacity-70 -bottom-[20vmax] -left-[15vmax]"></div> -->
@@ -375,8 +391,9 @@
     <section
       class="h-screen w-full flex flex-col-reverse xl:flex-row justify-center xl:items-center gap-10 md:gap-10 xl:gap-40 px-6 md:px-16">
       <div class="flex flex-col justify-center items-start gap-4 max-w-md xl:mt-72">
-        <p class="text-sm md:text-base font-light leading-5 text-[#F3F3F3]">
-          I design intuitive experiences at <a href="https://www.accenture.com" target="_blank" class="font-medium italic">Accenture</a>, solving complex problems with creativity and logic. When offline,
+        <p class="text-sm md:text-md font-light leading-5 text-[#F3F3F3]">
+          I design intuitive experiences at <a href="https://www.accenture.com" target="_blank"
+            class="font-medium italic">Accenture</a>, solving complex problems with creativity and logic. When offline,
           I explore new tools, sketch relentlessly, and play games with surprisingly bad UX.
         </p>
         <a href="mailto:akshatm535@gmail.com"
@@ -516,10 +533,10 @@
       <div class="flex flex-col gap-6 xl:gap-10">
         <!-- Work Item 1 -->
         <div
-          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pb-12 border-b border-white/40">
+          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-start pb-12 border-b border-white/40">
           <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
           <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
-            <img src="Images/IdendefAi.jpg" alt="Work 1" class="w-full h-full object-cover" />
+            <img src="Images/IdendefAi.png" alt="Work 1" class="w-full h-full aspect-7/4 object-cover" />
           </div>
 
           <!-- Title & Link - spans 1 column on mobile/tablet -->
@@ -545,45 +562,49 @@
           </div>
 
           <!-- Description - spans 1 column on mobile/tablet -->
-          <div class="text-base md:text-lg xl:text-xl font-light leading-5 text-[#F3F3F3] max-w-md order-4 xl:order-3">
-            <p class="leading-5">Designed OpenGuard to solve fragmented KYC workflows at IdendefAi — a shared verification platform backed by a scalable, system-driven UX.</p>
+          <div class="text-base md:text-lg xl:text-xl font-light leading-7 text-[#F3F3F3] max-w-md order-4 xl:order-3">
+            <p class="afacad-font font-light text-[#E8E8E8] leading-6">Designed OpenGuard to solve fragmented KYC
+              workflows at IdendefAi — a shared verification platform backed by a scalable, system-driven UX.</p>
           </div>
         </div>
 
         <!-- Work Item 2 -->
-        <!--<div
-          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24 border-b border-white/40">
+        <div
+          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-start pt-7 pb-12 xl:pb-24 border-b border-white/40">
           <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
-            <img src="Images/work-2.png" alt="Work 2" class="w-full h-full object-cover" />
+            <img src="Images/Frame 3468716.png" alt="Work 2" class="w-full h-full aspect-7/4 object-cover" />
           </div>
-        --> 
+
 
           <!-- Title & Link - spans 1 column on mobile/tablet -->
-          <!-- <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
-            <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Cozy Bliss</h3>
-            <a href="https://www.figma.com/proto/BhsjV2MI9AlgoSC6YfXupU/Portfolio-Website--New?node-id=1639-12132&t=V2lFEY6QQXOaMKxC-1"
-              target="_blank"
+          <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
+            <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Warrantrack</h3>
+            <a href="https://www.behance.net/gallery/248669665/Warrantrack" target="_blank"
               class="connect-link text-lg md:text-xl xl:text-2xl font-semibold text-white no-underline inline-block transition-transform duration-300 italic cursor-pointer">See
               details →</a>
-          </div> -->
+          </div>
 
           <!-- Tags - spans 1 column on mobile/tablet -->
-          <!-- <div class="flex xl:flex-col gap-2 md:gap-3 items-start order-3 xl:order-2">
+          <div class="flex xl:flex-col gap-2 md:gap-3 items-start order-3 xl:order-2">
             <span
-              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Industrial
+              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">UX
               Design</span>
             <span
-              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Furniture</span>
+              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Desktop
+              App</span>
             <span
-              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Mobile</span>
-          </div> -->
+              class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Mobile
+              App</span>
+          </div>
 
           <!-- Description - spans 1 column on mobile/tablet -->
-          <!-- <div class="text-base md:text-lg xl:text-xl font-light leading-5 text-[#d1d1d1] max-w-md order-4 xl:order-3">
-            <p class="leading-5">Designing a compact, modern lounge chair for Mumbai homes, evolving from research and
-              ideation to CAD modeling, rendering, and physical prototyping.</p>
+          <div class="text-base md:text-lg xl:text-xl
+            max-w-md order-4 xl:order-3">
+            <p class="afacad-font font-light text-[#E8E8E8] leading-6">An end-to-end warranty and supply chain
+              management platform built for an Indian pump manufacturer — connecting manufacturers, distributors, and
+              dealers in one structured, traceable system.</p>
           </div>
-        </div> -->
+        </div>
 
         <!-- Work Item 3 -->
         <!--<div
@@ -593,7 +614,7 @@
           </div>
 
           Title & Link - spans 1 column on mobile/tablet -->
-          <!-- <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
+        <!-- <div class="flex xl:flex-col justify-between xl:justify-start gap-2 md:gap-3 order-2 xl:order-1">
             <h3 class="beautique-font text-2xl xl:text-5xl font-medium text-white whitespace-normal">Talk Tango</h3>
             <a href="https://www.figma.com/proto/BhsjV2MI9AlgoSC6YfXupU/Portfolio-Website--New?node-id=1639-9393&t=V2lFEY6QQXOaMKxC-1"
               target="_blank"
@@ -601,7 +622,7 @@
               details →</a>
           </div> -->
 
-          <!-- <div class="flex xl:flex-col gap-2 md:gap-3 items-start order-3 xl:order-2">
+        <!-- <div class="flex xl:flex-col gap-2 md:gap-3 items-start order-3 xl:order-2">
             <span
               class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Industrial
               Design</span>
@@ -611,7 +632,7 @@
               class="text-sm sm:text-sm lg:text-lg xl:text-xl font-normal text-white px-2 md:px-4 border border-white rounded-full w-fit">Mobile</span>
           </div> -->
 
-          <!-- <div class="text-base md:text-lg xl:text-xl font-light leading-5 text-[#d1d1d1] max-w-md order-4 xl:order-3">
+        <!-- <div class="text-base md:text-lg xl:text-xl font-light leading-5 text-[#d1d1d1] max-w-md order-4 xl:order-3">
             <p class="leading-5">Designing an iPad-based language-learning companion that blends real-time feedback,
               gamification, and cultural context to make learning engaging and intuitive.</p>
           </div>
@@ -649,10 +670,10 @@
 
         <!-- Work Item 5 -->
         <div
-          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-center pt-7 pb-12 xl:pb-24">
+          class="grid sm:grid-cols-[1fr_1fr] xl:grid-cols-[20%_15%_1fr_1fr] gap-6 xl:gap-10 items-start pt-7 pb-12 xl:pb-24">
           <!-- Image - spans 1 column on mobile/tablet, moves to last column on lg+ -->
           <div class="w-full h-full row-span-3 xl:row-span-1 order-1 xl:order-4">
-            <img src="Images/Sketch.png" alt="Work 6" class="w-full h-full object-cover" />
+            <img src="Images/Sketch.png" alt="Work 6" class="w-full h-full aspect-7/4 object-cover" />
           </div>
 
           <!-- Title & Link - spans 1 column on mobile/tablet -->
@@ -681,8 +702,10 @@
           </div>
 
           <!-- Description - spans 1 column on mobile/tablet -->
-          <div class="text-base md:text-lg xl:text-xl font-light leading-5 text-[#F3F3F3] max-w-md order-4 xl:order-3">
-            <p class="leading-5">A playground of visual explorations including posters, graphic layouts, logos, illustrations, and sketches—created to experiment, learn, and express ideas beyond structured projects.</p>
+          <div class="text-base md:text-lg xl:text-xl font-light leading-7 text-[#F3F3F3] max-w-md order-4 xl:order-3">
+            <p class="afacad-font font-light text-[#E8E8E8] leading-6">A playground of visual explorations including
+              posters, graphic layouts, logos, illustrations, and sketches—created to experiment, learn, and express
+              ideas beyond structured projects.</p>
           </div>
         </div>
       </div>
